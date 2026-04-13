@@ -8,10 +8,21 @@ public class TheaterReservations {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        String firstName = "";
+        String lastName = "";
         String tick = "";
 
         System.out.print("Please enter your name: ");
-        String name = scanner.nextLine();
+        String name = scanner.nextLine().trim();
+
+        int space = name.indexOf(" ");
+
+        firstName = name.substring(0,space);
+
+        lastName = name.substring(space + 1);
+
+        name = lastName + ", " + firstName;
+
 
         System.out.print("What date will you be coming (MM/dd/yyyy): ");
         String date = scanner.nextLine();
@@ -30,6 +41,5 @@ public class TheaterReservations {
 
         String result = tick + " reserved for " + reserved + " under " + name;
         System.out.println(result);
-
     }
 }
