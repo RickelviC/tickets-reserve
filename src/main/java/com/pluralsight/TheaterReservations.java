@@ -1,10 +1,14 @@
 package com.pluralsight;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class TheaterReservations {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
+        String tick = "";
 
         System.out.print("Please enter your name: ");
         String name = scanner.nextLine();
@@ -12,11 +16,19 @@ public class TheaterReservations {
         System.out.print("What date will you be coming (MM/dd/yyyy): ");
         String date = scanner.nextLine();
 
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        LocalDate reserved = LocalDate.parse(date, formatter);
+
         System.out.print("How many tickets would you like? ");
-        int tickets = scanner.nextInt();
+        int ticket = scanner.nextInt();
 
-        String result = tickets + " reserved for " + date + " under " + name;
+        if (ticket == 1){
+            tick = (ticket) + " ticket";
+        }else {
+            tick = (ticket) + " tickets";
+        }
 
+        String result = tick + " reserved for " + reserved + " under " + name;
         System.out.println(result);
 
     }
