@@ -19,14 +19,13 @@ public class TheaterReservations {
 
         LocalDate reserved = getDate(date);
 
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-//        LocalDate reserved = LocalDate.parse(date, formatter);
-
         String tick = getTicket(ticket);
 
         name = getName(name);
 
         printResult(tick, reserved, name);
+
+        scanner.close();
     }
 
     public static LocalDate getDate(String date) {
