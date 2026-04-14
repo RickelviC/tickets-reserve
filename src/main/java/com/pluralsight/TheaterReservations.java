@@ -8,8 +8,6 @@ public class TheaterReservations {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        String firstName = "";
-        String lastName = "";
         String tick = "";
 
         System.out.print("Please enter your name: ");
@@ -17,9 +15,9 @@ public class TheaterReservations {
 
         int space = name.indexOf(" ");
 
-        firstName = name.substring(0,space);
+        String firstName = name.substring(0,space);
 
-        lastName = name.substring(space + 1);
+        String lastName = name.substring(space + 1);
 
         name = lastName + ", " + firstName;
 
