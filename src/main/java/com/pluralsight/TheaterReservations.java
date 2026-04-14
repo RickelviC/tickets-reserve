@@ -19,40 +19,43 @@ public class TheaterReservations {
 
         LocalDate reserved = getDate(date);
 
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+//        LocalDate reserved = LocalDate.parse(date, formatter);
+
         String tick = getTicket(ticket);
-
-
 
         name = getName(name);
 
-        printResult(tick,reserved,name);
+        printResult(tick, reserved, name);
     }
 
-    public static LocalDate getDate(String date){
+    public static LocalDate getDate(String date) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
         return LocalDate.parse(date, formatter);
     }
 
-    public static String getName(String name){
+    public static String getName(String name) {
         int space = name.indexOf(" ");
 
-        String firstName = name.substring(0,space);
+        String firstName = name.substring(0, space);
 
         String lastName = name.substring(space + 1);
 
         name = lastName + ", " + firstName;
         return name;
     }
-    public static String getTicket(int ticket){
+
+    public static String getTicket(int ticket) {
         String tick = "";
-        if (ticket == 1){
+        if (ticket == 1) {
             tick = (ticket) + " ticket";
-        }else {
+        } else {
             tick = (ticket) + " tickets";
         }
         return tick;
     }
-    public static void printResult(String tick,LocalDate reserved, String name){
+
+    public static void printResult(String tick, LocalDate reserved, String name) {
         String result = tick + " reserved for " + reserved + " under " + name;
         System.out.println(result);
     }
