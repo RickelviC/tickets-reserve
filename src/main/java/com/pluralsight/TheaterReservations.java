@@ -11,21 +11,26 @@ public class TheaterReservations {
         System.out.print("Please enter your name: ");
         String name = scanner.nextLine().trim();
 
-        name = getName(name);
-
         System.out.print("What date will you be coming (MM/dd/yyyy): ");
         String date = scanner.nextLine();
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-        LocalDate reserved = LocalDate.parse(date, formatter);
 
         System.out.print("How many tickets would you like? ");
         int ticket = scanner.nextInt();
 
+        LocalDate reserved = getDate(date);
+
         String tick = getTicket(ticket);
 
-        String result = tick + " reserved for " + reserved + " under " + name;
-        System.out.println(result);
+
+
+        name = getName(name);
+
+        printResult(tick,reserved,name);
+    }
+
+    public static LocalDate getDate(String date){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        return LocalDate.parse(date, formatter);
     }
 
     public static String getName(String name){
@@ -46,5 +51,9 @@ public class TheaterReservations {
             tick = (ticket) + " tickets";
         }
         return tick;
+    }
+    public static void printResult(String tick,LocalDate reserved, String name){
+        String result = tick + " reserved for " + reserved + " under " + name;
+        System.out.println(result);
     }
 }
